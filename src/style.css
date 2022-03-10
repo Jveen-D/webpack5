@@ -1,15 +1,4 @@
-@font-face {
-  font-family: "webfont";
-  src: url("./webfont.woff2") format("woff2"),
-    url("./webfont.woff") format("woff");
-  font-weight: 600;
-  font-style: normal;
-}
 .hello {
   width: 400px;
   color: red;
-  font-family: "webfont";
-  background: url("./happy.jpeg");
-  background-repeat: no-repeat;
-  background-size: auto 100%;
 }

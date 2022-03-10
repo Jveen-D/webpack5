@@ -4,8 +4,7 @@
  * @FilePath: /webpack5/src/index.js
  */
 import _ from "lodash";
-import Happy from "./happy.jpeg";
-import "./style.css";
+
 function component() {
   const element = document.createElement("div");
 
@@ -14,12 +13,7 @@ function component() {
   child.innerHTML = _.join(["Hello", "webpack"], " ");
   child.classList.add("hello");
 
-  // 将图像添加到我们已经存在的 div 中。
-  const myIcon = new Image();
-  myIcon.src = Happy;
-
   element.appendChild(child);
-  element.appendChild(myIcon);
   return element;
 }
 
