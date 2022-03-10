@@ -1,4 +1,7 @@
 .hello {
+  width: 400px;
   color: red;
   background: url("./happy.jpeg");
+  background-repeat: no-repeat;
+  background-size: auto 100%;
 }
