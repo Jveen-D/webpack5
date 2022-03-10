@@ -4,7 +4,9 @@
  * @FilePath: /webpack5/webpack.config.js
  */
 const path = require("path");
+const { WebpackManifestPlugin } = require("webpack-manifest-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const options = {};
 module.exports = {
   entry: {
     index: "./src/index.js",
@@ -14,9 +16,11 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: "管理输出",
     }),
+    new WebpackManifestPlugin(options),
   ],
   output: {
     filename: "[name].bundle.js",
     path: path.resolve(__dirname, "dist"),
+    clean: true,
   },
 };
