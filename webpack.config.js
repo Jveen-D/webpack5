@@ -12,6 +12,13 @@ module.exports = {
   entry: {
     index: "./src/index.js",
     print: "./src/print.js",
+    another: "./src/another-module.js",
+  },
+  output: {
+    filename: "[name].bundle.js",
+    path: path.resolve(__dirname, "dist"),
+    clean: true,
+    publicPath: "/webpack",
   },
   devtool: "inline-source-map",
   devServer: {
@@ -23,10 +30,4 @@ module.exports = {
     }),
     new WebpackManifestPlugin(options),
   ],
-  output: {
-    filename: "[name].bundle.js",
-    path: path.resolve(__dirname, "dist"),
-    clean: true,
-    publicPath: "/webpack",
-  },
 };
