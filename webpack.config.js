@@ -4,17 +4,13 @@
  * @FilePath: /webpack5/webpack.config.js
  */
 const path = require("path");
-const { WebpackManifestPlugin } = require("webpack-manifest-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 const options = {};
 module.exports = {
   mode: "development",
   entry: {
-    print: "./src/print.js",
     index: "./src/index.js",
-    another: "./src/another-module.js",
   },
   output: {
     filename: "[name].bundle.js",
@@ -22,7 +18,6 @@ module.exports = {
     clean: true,
     publicPath: "/webpack",
   },
-  devtool: "inline-source-map",
   devServer: {
     static: "./dist",
   },
@@ -30,20 +25,5 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: "Development",
     }),
-    new WebpackManifestPlugin(options),
-    new MiniCssExtractPlugin(),
   ],
-  optimization: {
-    splitChunks: {
-      chunks: "all",
-    },
-  },
-  module: {
-    rules: [
-      {
-        test: /\.css$/i,
-        use: [MiniCssExtractPlugin.loader, "css-loader"],
-      },
-    ],
-  },
 };
