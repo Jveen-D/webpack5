@@ -6,6 +6,8 @@
 const path = require("path");
 const { WebpackManifestPlugin } = require("webpack-manifest-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+
 const options = {};
 module.exports = {
   mode: "development",
@@ -29,10 +31,19 @@ module.exports = {
       title: "Development",
     }),
     new WebpackManifestPlugin(options),
+    new MiniCssExtractPlugin(),
   ],
   optimization: {
     splitChunks: {
       chunks: "all",
     },
+  },
+  module: {
+    rules: [
+      {
+        test: /\.css$/i,
+        use: [MiniCssExtractPlugin.loader, "css-loader"],
+      },
+    ],
   },
 };

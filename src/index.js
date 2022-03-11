@@ -4,6 +4,7 @@
  * @FilePath: /webpack5/src/index.js
  */
 import _ from "lodash";
+import "./index.css";
 import printMe from "./print.js";
 
 function component() {
@@ -11,6 +12,7 @@ function component() {
 
   // lodash 在当前 script 中使用 import 引入
   element.innerHTML = _.join(["Hello", "webpack"], " ");
+  element.classList.add("red");
 
   const btn = document.createElement("button");
 
