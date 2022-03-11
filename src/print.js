@@ -4,5 +4,5 @@
  * @FilePath: /webpack5/src/print.js
  */
 export default function printMe() {
-  consoole.log("I get called from print.js!");
+  console.log("I get called from print.js!");
 }
