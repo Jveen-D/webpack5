@@ -1,11 +1,12 @@
 /*
  * @Date: 2022-03-10 20:03:26
  * @LastEditors: dwj18066042960
- * @FilePath: /webpack5/webpack.config.js
+ * @FilePath: \webpack5\webpack.config.js
  */
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-
+const BundleAnalyzerPlugin =
+  require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
 const options = {};
 module.exports = {
   mode: "development",
@@ -25,5 +26,6 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: "Development",
     }),
+    new BundleAnalyzerPlugin(),
   ],
 };
