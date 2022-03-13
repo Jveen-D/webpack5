@@ -8,37 +8,42 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const BundleAnalyzerPlugin =
   require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
 const options = {};
-module.exports = {
-  mode: "development",
-  entry: {
-    index: "./src/index.js",
-  },
-  output: {
-    filename: "[name].[contenthash].js",
-    path: path.resolve(__dirname, "dist"),
-    clean: true,
-    publicPath: "/webpack",
-  },
-  devServer: {
-    static: "./dist",
-  },
-  plugins: [
-    new HtmlWebpackPlugin({
-      title: "Caching",
-    }),
-    // new BundleAnalyzerPlugin(),
-  ],
-  optimization: {
-    moduleIds: "deterministic",
-    runtimeChunk: "single",
-    splitChunks: {
-      cacheGroups: {
-        vendor: {
-          test: /[\\/]node_modules[\\/]/,
-          name: "vendors",
-          chunks: "all",
+module.exports = (env) => {
+  // Use env.<YOUR VARIABLE> here:
+  console.log("Production: ", env.production); // true
+
+  return {
+    mode: "development",
+    entry: {
+      index: "./src/index.js",
+    },
+    output: {
+      filename: "[name].[contenthash].js",
+      path: path.resolve(__dirname, "dist"),
+      clean: true,
+      publicPath: "/webpack",
+    },
+    devServer: {
+      static: "./dist",
+    },
+    plugins: [
+      new HtmlWebpackPlugin({
+        title: "Caching",
+      }),
+      // new BundleAnalyzerPlugin(),
+    ],
+    optimization: {
+      moduleIds: "deterministic",
+      runtimeChunk: "single",
+      splitChunks: {
+        cacheGroups: {
+          vendor: {
+            test: /[\\/]node_modules[\\/]/,
+            name: "vendors",
+            chunks: "all",
+          },
         },
       },
     },
-  },
+  };
 };
