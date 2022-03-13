@@ -29,6 +29,7 @@ module.exports = {
     // new BundleAnalyzerPlugin(),
   ],
   optimization: {
+    moduleIds: "deterministic",
     runtimeChunk: "single",
     splitChunks: {
       cacheGroups: {
