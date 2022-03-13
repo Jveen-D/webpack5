@@ -1,7 +1,7 @@
 /*
  * @Date: 2022-03-10 20:03:26
  * @LastEditors: dwj18066042960
- * @FilePath: \webpack5\webpack.config.js
+ * @FilePath: \webpack5\webpack.dev.js
  */
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
@@ -10,18 +10,18 @@ const BundleAnalyzerPlugin =
 const options = {};
 module.exports = (env) => {
   // Use env.<YOUR VARIABLE> here:
-  console.log("Production: ", env.production); // true
+  console.log("Mode: ", env.mode); // true
 
   return {
     mode: "development",
     entry: {
-      index: "./src/index.js",
+      index: "./src/index.ts",
     },
     output: {
       filename: "[name].[contenthash].js",
       path: path.resolve(__dirname, "dist"),
       clean: true,
-      publicPath: "/webpack",
+      publicPath: "/",
     },
     devServer: {
       static: "./dist",
@@ -44,6 +44,18 @@ module.exports = (env) => {
           },
         },
       },
+    },
+    module: {
+      rules: [
+        {
+          test: /\.tsx?$/,
+          use: "ts-loader",
+          exclude: /node_modules/,
+        },
+      ],
+    },
+    resolve: {
+      extensions: [".tsx", ".ts", ".js"],
     },
   };
 };

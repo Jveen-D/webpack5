@@ -1,14 +1,14 @@
 /*
  * @Date: 2022-03-11 12:22:09
  * @LastEditors: dwj18066042960
- * @FilePath: /webpack5/server.js
+ * @FilePath: \webpack5\server.js
  */
 const express = require("express");
 const webpack = require("webpack");
 const webpackDevMiddleware = require("webpack-dev-middleware");
 
 const app = express();
-const config = require("./webpack.config.js");
+const config = require("./webpack.dev.js");
 const compiler = webpack(config);
 
 // 告知 express 使用 webpack-dev-middleware，
