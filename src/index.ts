@@ -3,11 +3,10 @@
  * @LastEditors: dwj18066042960
  * @FilePath: \webpack5\src\index.ts
  */
+import * as _ from "lodash";
 function component() {
   const element = document.createElement("div");
-
-  element.innerHTML = "Hello webpack";
-
+  element.innerHTML = _.join(["Hello", "webpack"], " ");
   return element;
 }
 

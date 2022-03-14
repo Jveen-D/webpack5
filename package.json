@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/Jveen-D/webpack5#readme",
   "devDependencies": {
+    "@types/lodash": "^4.14.179",
     "css-loader": "^6.7.1",
     "express": "^4.17.3",
     "html-webpack-plugin": "^5.5.0",
